@@ -1,3 +1,4 @@
+import { View } from "react-native";
 import "../styles/global.css"
 import { Slot } from "expo-router";
 
@@ -7,5 +8,9 @@ export default function RootLayout() {
   //     <Stack.Screen name="index" />
   //   </Stack>
   // );
-  return <Slot />
+  return (
+    <View style={{marginTop: 0}} >
+      <Slot />
+    </View>
+  )
 }

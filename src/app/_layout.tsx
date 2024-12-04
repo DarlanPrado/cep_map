@@ -1,16 +1,19 @@
-import "../styles/global.css"
-import { View } from "react-native";
+import '../styles/global.css'
+import { ScrollView } from "react-native";
+import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { Slot } from "expo-router";
+import { ReloadProvider } from "../contexts/reaload";
 
 export default function RootLayout() {
-  // return (
-  //   <Stack >
-  //     <Stack.Screen name="index" />
-  //   </Stack>
-  // );
   return (
-    <View style={{marginTop: 0}} >
-      <Slot />
-    </View>
-  )
+    <SafeAreaProvider>
+      <SafeAreaView style={{ flex: 1 }}>
+        <ReloadProvider>
+          <ScrollView style={{ flex: 1 }}>
+            <Slot />
+          </ScrollView>
+        </ReloadProvider>
+      </SafeAreaView>
+    </SafeAreaProvider>
+  );
 }
